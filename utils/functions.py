@@ -58,10 +58,11 @@ def get_only_executed(dict_list)->list:
     :param dict_list: исходный список словарей
     :return: отфильтрованный список словарей
     """
+    filtred_list = []
     for dic in dict_list:
-        if (not 'state' in dic) or dic['state'].upper() != 'EXECUTED':
-            dict_list.remove(dic)
-    return dict_list
+        if 'state' in dic and dic['state'].upper() == 'EXECUTED':
+            filtred_list.append(dic)
+    return filtred_list
 
 def hide_digit(text)->str:
     """
